@@ -1,0 +1,12 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-rubric-display',
+  standalone: true,
+  imports: [],
+  templateUrl: './rubric-display.component.html',
+  styleUrl: './rubric-display.component.css'
+})
+export class RubricDisplayComponent {
+
+}

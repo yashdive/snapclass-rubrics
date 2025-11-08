@@ -1,0 +1,696 @@
+/* RubricDisplay.css - Clean, modern styling */
+
+.rubric-display-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.page-header {
+  width: 100%;
+  max-width: 1400px;
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #64748b;
+}
+
+/* Generation Form */
+.generation-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+}
+
+.rubric-form,
+.regenerate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input[type="text"]:disabled,
+.form-group textarea:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 1rem;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #991b1b;
+  font-size: 0.95rem;
+}
+
+.btn-generate,
+.btn-regenerate-all {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-generate:hover:not(:disabled),
+.btn-regenerate-all:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-generate:disabled,
+.btn-regenerate-all:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Rubric Display */
+.rubric-section {
+  width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.rubric-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.rubric-header > div {
+  flex: 1;
+}
+
+.rubric-header h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.btn-edit-all {
+  padding: 0.75rem 1.5rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #334155;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-edit-all:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.edit-form-section {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid #e2e8f0;
+}
+
+.edit-form-section h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #334155;
+}
+
+.rubric-description {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.total-points {
+  font-size: 1.2rem;
+  color: #334155;
+}
+
+.total-points strong {
+  color: #3b82f6;
+  font-size: 1.5rem;
+}
+
+/* Table */
+.rubric-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.rubric-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rubric-table thead {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.rubric-table th {
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.category-column {
+  width: 250px;
+  position: sticky;
+  left: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  z-index: 10;
+}
+
+.objective-column {
+  min-width: 260px;
+}
+
+.rubric-table tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rubric-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.rubric-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.category-cell {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-right: 2px solid #e2e8f0;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  padding-bottom: 2.2rem; /* space for regenerate button */
+}
+
+.category-name {
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.category-reasoning {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.category-points {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #3b82f6;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.row-instruction {
+  width: calc(100% - 44px);
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  background: #fff;
+}
+
+.row-regenerate-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffffffa;
+  backdrop-filter: blur(4px);
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.row-regenerate-btn:hover:not(:disabled) {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(59,130,246,0.35);
+}
+
+.row-regenerate-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Instruction expansion row */
+.row-instruction-row {
+  background: #f1f5f9;
+}
+
+.row-instruction-cell {
+  padding: 0;
+  border: 1px solid #e2e8f0;
+}
+
+.row-instruction-panel {
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: linear-gradient(135deg,#ffffff 0%, #f8fafc 60%);
+}
+
+.row-instruction-panel h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.panel-hint {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.row-instruction-textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+.row-instruction-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.row-instruction-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.btn-cancel-row,
+.btn-confirm-row {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.btn-cancel-row {
+  background: #f8fafc;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+.btn-cancel-row:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.btn-confirm-row {
+  background: #3b82f6;
+  color: #fff;
+}
+.btn-confirm-row:hover:not(:disabled) {
+  background: #2563eb;
+  box-shadow: 0 4px 8px rgba(37,99,235,0.35);
+}
+.btn-confirm-row:disabled,
+.btn-cancel-row:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.objective-cell {
+  padding: 0.75rem;
+  vertical-align: top;
+  position: relative;
+  min-height: 80px;
+}
+
+.objective-wrapper {
+  height: 100%;
+}
+
+/* View Mode */
+.view-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.objective-text {
+  font-size: 0.8rem;
+  color: #334155;
+  line-height: 1.5;
+  position: relative;
+  padding-right: 0.5rem;
+  padding-bottom: 1.4rem; /* space for edit icon */
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.objective-points {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 8px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.icon-btn.edit-icon {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffffcc;
+  backdrop-filter: blur(4px);
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  opacity: 0.0;
+}
+
+.view-mode:hover .icon-btn.edit-icon { opacity: 1; }
+
+.icon-btn.edit-icon:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.view-mode { padding-bottom: 0.75rem; }
+
+/* Edit Mode */
+.edit-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.objective-textarea {
+  padding: 0.6rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.objective-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.points-input {
+  padding: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100px;
+}
+
+.points-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.instruction-input {
+  padding: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-family: inherit;
+}
+
+.instruction-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-save,
+.btn-regenerate {
+  padding: 0.35rem 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save {
+  background: #10b981;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+.btn-regenerate {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-regenerate:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-regenerate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty Cell */
+.empty-cell {
+  color: #cbd5e1;
+  font-size: 1rem;
+  text-align: center;
+  display: block;
+}
+
+/* Column header refinement */
+.column-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.column-points {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #1e3a8a;
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.column-tier {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #e0f2fe;
+}
+
+/* Ensure table fits viewport */
+.rubric-table-wrapper {
+  max-height: calc(100vh - 280px);
+  overflow: auto;
+}
+
+.rubric-table td, .rubric-table th {
+  border: 1px solid #e2e8f0;
+}
+
+/* Scrollbar styling */
+.rubric-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.rubric-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.rubric-table-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.rubric-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Footer */
+.rubric-footer {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.rubric-footer p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rubric-display-page {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .category-column {
+    width: 200px;
+  }
+
+  .objective-column {
+    min-width: 250px;
+  }
+}

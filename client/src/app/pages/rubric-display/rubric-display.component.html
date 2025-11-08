@@ -1,0 +1,173 @@
+<div class="rubric-display-page">
+  <header class="page-header">
+    <div class="header-content">
+      <a routerLink="/" class="back-link">← Back to Home</a>
+      <h1>🎓 Snap! Rubric Generator</h1>
+      <p>Your generated rubric</p>
+    </div>
+  </header>
+
+  <section class="rubric-section" *ngIf="rubric && rubric.categories && rubric.categories.length > 0">
+    <div class="rubric-header">
+      <div>
+        <h2>📋 {{ rubric.rubric_title }}</h2>
+        <p *ngIf="rubric.description" class="rubric-description">{{ rubric.description }}</p>
+        <p class="total-points">Total Points: <strong>{{ rubric.total_points }}</strong></p>
+      </div>
+      <button (click)="editMode = !editMode" class="btn-edit-all">
+        {{ editMode ? '❌ Cancel' : '✏️ Edit & Regenerate All' }}
+      </button>
+    </div>
+
+    <div *ngIf="editMode" class="edit-form-section">
+      <h3>Edit Assignment & Regenerate Entire Rubric</h3>
+      <form (ngSubmit)="onRegenerateAll($event)" class="regenerate-form">
+        <div class="form-group">
+          <label>Assignment Title *</label>
+          <input
+            type="text"
+            [(ngModel)]="title"
+            name="title"
+            placeholder="Assignment Title"
+            required
+            [disabled]="loading"
+          />
+        </div>
+        <div class="form-group">
+          <label>Assignment Description *</label>
+          <textarea
+            [(ngModel)]="description"
+            name="description"
+            placeholder="Assignment Description"
+            rows="4"
+            required
+            [disabled]="loading"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label>Additional Requirements (Optional)</label>
+          <textarea
+            [(ngModel)]="question"
+            name="question"
+            placeholder="Additional Requirements (optional)"
+            rows="3"
+            [disabled]="loading"
+          ></textarea>
+        </div>
+        <div *ngIf="error" class="error-message">⚠️ {{ error }}</div>
+        <button type="submit" [disabled]="loading" class="btn-regenerate-all">
+          {{ loading ? '⏳ Regenerating...' : '�� Regenerate Entire Rubric' }}
+        </button>
+      </form>
+    </div>
+
+    <div class="rubric-table-wrapper">
+      <table class="rubric-table">
+        <thead>
+          <tr>
+            <th class="category-column">Category</th>
+            <th *ngFor="let idx of getObjectivesArray(maxObjectives)" class="objective-column">
+              <div class="column-header">
+                <div class="column-points">{{ getColumnPoints(idx) ?? '—' }} pts</div>
+                <div class="column-tier">Tier {{ idx + 1 }}</div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let category of rubric.categories; let catIdx = index">
+          <tr>
+            <td class="category-cell">
+              <div class="category-content">
+                <strong class="category-name">{{ category.category }}</strong>
+                <p *ngIf="category.reasoning" class="category-reasoning">{{ category.reasoning }}</p>
+                <span class="category-points">{{ category.points }} pts</span>
+                <button 
+                  class="row-regenerate-btn" 
+                  (click)="onRowRegenerate(catIdx)"
+                  [disabled]="isRegeneratingRow(catIdx)"
+                  title="Regenerate this row"
+                  aria-label="Regenerate row"
+                >
+                  {{ isRowInstructionOpen(catIdx) ? (isRegeneratingRow(catIdx) ? '⏳' : '⚙️') : (isRegeneratingRow(catIdx) ? '⏳' : '🔄') }}
+                </button>
+              </div>
+            </td>
+            
+            <td *ngFor="let objIdx of getObjectivesArray(maxObjectives)" class="objective-cell">
+              <div class="objective-wrapper" *ngIf="category.objectives[objIdx]">
+                <div *ngIf="isEditing(catIdx, objIdx)" class="edit-mode">
+                  <textarea
+                    class="objective-textarea"
+                    [value]="category.objectives[objIdx].objective"
+                    (input)="onCellEdit(catIdx, objIdx, $any($event.target).value)"
+                    rows="4"
+                  ></textarea>
+                  <input
+                    type="number"
+                    class="points-input"
+                    [value]="category.objectives[objIdx].points"
+                    (input)="onPointsEdit(catIdx, objIdx, $any($event.target).value)"
+                    min="0"
+                  />
+                  <div class="edit-actions">
+                    <button class="btn-save" (click)="stopEditing()">
+                      ✓ Save
+                    </button>
+                  </div>
+                </div>
+                
+                <div 
+                  *ngIf="!isEditing(catIdx, objIdx)"
+                  class="view-mode"
+                  (dblclick)="startEditing(catIdx, objIdx)"
+                  [title]="'Double-click to edit'"
+                >
+                  <button 
+                    class="icon-btn edit-icon" 
+                    (click)="startEditing(catIdx, objIdx); $event.stopPropagation()" 
+                    aria-label="Edit objective"
+                    title="Edit"
+                  >
+                    ✎
+                  </button>
+                  <div class="objective-text" [title]="category.objectives[objIdx].objective">
+                    {{ category.objectives[objIdx].objective }}
+                  </div>
+                </div>
+              </div>
+              <span *ngIf="!category.objectives[objIdx]" class="empty-cell">—</span>
+            </td>
+          </tr>
+          <tr *ngIf="isRowInstructionOpen(catIdx)" class="row-instruction-row">
+            <td [attr.colspan]="maxObjectives + 1" class="row-instruction-cell">
+              <div class="row-instruction-panel">
+                <h4>Regenerate "{{ category.category }}" Objectives</h4>
+                <p class="panel-hint">Refine how each tier is described. Keep the point scale the same. Provide guidance focused on changes you want.</p>
+                <textarea
+                  [(ngModel)]="rowInstructions[catIdx]"
+                  [ngModelOptions]="{standalone: true}"
+                  class="row-instruction-textarea"
+                  placeholder="e.g. Emphasize event-driven design differences and mention proper use of loops at higher tiers"
+                  [disabled]="isRegeneratingRow(catIdx)"
+                  rows="4"
+                ></textarea>
+                <div class="row-instruction-actions">
+                  <button class="btn-cancel-row" (click)="cancelRowRegenerate(catIdx)" [disabled]="isRegeneratingRow(catIdx)">Cancel</button>
+                  <button class="btn-confirm-row" (click)="confirmRowRegenerate(catIdx)" [disabled]="isRegeneratingRow(catIdx)">
+                    {{ isRegeneratingRow(catIdx) ? 'Regenerating…' : 'Generate' }}
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rubric-footer">
+      <p>💡 <strong>Tip:</strong> Click "Edit" on any cell to modify it manually or ask AI to regenerate it with specific instructions.</p>
+    </div>
+  </section>
+</div>

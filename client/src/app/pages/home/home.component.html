@@ -1,0 +1,60 @@
+<div class="home-page">
+  <div class="home-container">
+    <header class="home-header">
+      <h1>🎓 Snap! Rubric Generator</h1>
+      <p>Generate auto-gradable rubrics for your Snap! assignments</p>
+    </header>
+
+    <section class="form-section">
+      <form (ngSubmit)="onSubmit()" class="generation-form">
+        <div class="form-group">
+          <label>Assignment Title *</label>
+          <input
+            type="text"
+            [(ngModel)]="title"
+            name="title"
+            placeholder="e.g., Pong Game, Reverse Guessing Game"
+            required
+            [disabled]="loading"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label>Assignment Description *</label>
+          <textarea
+            [(ngModel)]="description"
+            name="description"
+            placeholder="Describe what students need to build in detail..."
+            rows="6"
+            required
+            [disabled]="loading"
+          ></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Additional Requirements (Optional)</label>
+          <textarea
+            [(ngModel)]="question"
+            name="question"
+            placeholder="Any specific grading criteria or questions..."
+            rows="4"
+            [disabled]="loading"
+          ></textarea>
+        </div>
+        
+        <div *ngIf="error" class="error-message">
+          ⚠️ {{ error }}
+        </div>
+        
+        <button type="submit" [disabled]="loading || !title || !description" class="btn-generate">
+          {{ loading ? '⏳ Generating Rubric...' : '🚀 Generate Rubric' }}
+        </button>
+      </form>
+    </section>
+
+    <footer class="home-footer">
+      <p>💡 Create detailed, consistent rubrics for Snap! programming assignments</p>
+    </footer>
+  </div>
+</div>
+
