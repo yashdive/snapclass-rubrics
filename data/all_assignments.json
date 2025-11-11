@@ -1,0 +1,713 @@
+[
+  {
+    "title": "Beauty and Joy of Computing Unit 1 Assessment",
+    "description": [
+      "Create an eCard that meets all of the following specifications:",
+      "Has a message for the viewer (such as \"Happy New Year,\" \"Happy Birthday,\" \"Get Well Soon,\" etc.)",
+      "Has stage background and sprite costumes",
+      "Includes a custom block. This can be either:",
+      "A start over block that resets the eCard to the beginning (resets pen, stage, and sprites) OR",
+      "Another custom block containing multiple blocks that contributes to the purpose of the program (this could move a sprite, change the background, etc.)",
+      "Includes iteration through the use of the repeat, repeat until, or for block.",
+      "Lets the user interact (such as by clicking a sprite, pressing a key, or moving the mouse, etc.)",
+      "Includes one additional feature. For example, you can choose:",
+      "Sounds or music (using the play block and/or the \"Sounds\" tab)",
+      "The random block",
+      "Put a comment in your code identifying the additional feature and briefly describing what it does."
+    ],
+    "rubric": [
+      {
+        "category": "Message for the Viewer",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The program includes a clear message for the viewer in an eCard format."
+          },
+          {
+            "points": 1,
+            "description": "The message for the viewer is unclear, inconsistent."
+          },
+          {
+            "points": 0,
+            "description": "There is no obvious message for the viewer."
+          }
+        ]
+      },
+      {
+        "category": "Stage Background and Sprite Costumes",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The stage background AND at least one sprite costume was customized."
+          },
+          {
+            "points": 1,
+            "description": "The stage background OR at least one sprite costume was customized."
+          },
+          {
+            "points": 0,
+            "description": "No customization was done to the stage background or sprite costumes."
+          }
+        ]
+      },
+      {
+        "category": "Custom Block",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A custom block was made with multiple blocks inside it. It has a clear purpose in the program."
+          },
+          {
+            "points": 1,
+            "description": "A custom block was made, but does not contain multiple blocks and/or does not have a clear purpose in the program."
+          },
+          {
+            "points": 0,
+            "description": "No custom block was made."
+          }
+        ]
+      },
+      {
+        "category": "Iteration",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Iteration was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "Iteration was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "There is no iteration."
+          }
+        ]
+      },
+      {
+        "category": "User Interaction",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "User interaction was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "User interaction was attempted  but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "There is no way for the user to interact with the program."
+          }
+        ]
+      },
+      {
+        "category": "Additional Feature",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "An additional feature was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "An additional feature was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No additional feature was implemented."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 2 Assessment",
+    "description": [
+      "Create a survey project that meets all of the following specifications:",
+      "Collects data from the user by asking the user a specific question and gathering their response using the ask and answer blocks.",
+      "For example:",
+      "Stores the collected data in a list. Put at least ten example responses into the list yourself.",
+      "Processes the data to answer three research questions by using one or more of the following blocks:",
+      "keep",
+      "combine",
+      "the list-processing blocks you built in Lab 4 on Page 3:",
+      "maximum of list",
+      "minimum of list",
+      "sum of list",
+      "average of list",
+      "For example: If you asked “How many books have you read so far this month?” you could analyze the data to answer the following research questions:",
+      "What is the average number of books people have read so far this month?",
+      "What is the maximum number of books people have read so far this month?",
+      "How many people have read at least two books this month?"
+    ],
+    "rubric": [
+      {
+        "category": "Data Collection Using ask and answer",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Data can be collected using the ask and answer blocks."
+          },
+          {
+            "points": 1,
+            "description": "Data collection was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No way to collect data from the user was implemented."
+          }
+        ]
+      },
+      {
+        "category": "Data Stored in a List",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "At least ten data points were entered into the program and were stored in a list."
+          },
+          {
+            "points": 1,
+            "description": "Fewer than ten data points were entered into the program OR data was entered but not stored in a list."
+          },
+          {
+            "points": 0,
+            "description": "No data was entered."
+          }
+        ]
+      },
+      {
+        "category": "Research Question #1",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to answer a research question."
+          },
+          {
+            "points": 1,
+            "description": "Code to answer a research question was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No research question was attempted."
+          }
+        ]
+      },
+      {
+        "category": "Research Question #2",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to answer a research question."
+          },
+          {
+            "points": 1,
+            "description": "Code to answer a research question was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No research question was attempted."
+          }
+        ]
+      },
+      {
+        "category": "Research Question #3",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to answer a research question."
+          },
+          {
+            "points": 1,
+            "description": "Code to answer a research question was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No research question was attempted."
+          }
+        ]
+      }
+      
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 3 Assessment",
+    "description": [
+      "Similar to your work in Lab 3: Turning Data into Information, create a data project that meets all of the following specifications:",
+      "Stores and manipulates information by creating an abstract data type that uses lists within lists to store similar data about several different items.",
+      "For example, you can store the name, breed, and age of several dogs as shown in the image to the right.",
+      "Includes ways for the user to do the following:",
+      "Add new items to the list.",
+      "Clear the list.",
+      "Search the list for an item that meets a specific criteria. For example, a dog with a given age."
+    ],
+    "rubric": [
+      {
+        "category": "Stores Data in List",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Data can be correctly stored in nested lists."
+          },
+          {
+            "points": 1,
+            "description": "Data cannot be correctly stored, or it can be stored, but it was not stored in nested lists."
+          },
+          {
+            "points": 0,
+            "description": "Data is not stored."
+          }
+        ]
+      },
+      {
+        "category": "Add Items to List",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Items can be added to the list and appear correctly in the list."
+          },
+          {
+            "points": 1,
+            "description": "An attempt was made to implement functionality to add items to the list but was not implemented successfully."
+          },
+          {
+            "points": 0,
+            "description": "There is no way to add items to the list."
+          }
+        ]
+      },
+      {
+        "category": "Clear List",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The list can be cleared."
+          },
+          {
+            "points": 1,
+            "description": "An attempt was made to implement functionality to clear the list but was not implemented successfully."
+          },
+          {
+            "points": 0,
+            "description": "There is no way to clear the list."
+          }
+        ]
+      },
+      {
+        "category": "Search List",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The list can be searched for a specific criteria."
+          },
+          {
+            "points": 1,
+            "description": "An attempt was made to implement functionality to search the list for a specific criteria but was not implemented successfully."
+          },
+          {
+            "points": 0,
+            "description": "There is no way to search the list."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 4 Assessment",
+    "description": [
+      "Make an interactive poster in Snap! that meets all of the following specifications:",
+      "Serves one of the following purposes:",
+      "Teaches the user how the internet works OR",
+      "Warns the user about cybersecurity concerns OR",
+      "Informs the user about digital equity",
+      "Lets the user interact (e.g., by clicking a sprite, pressing a key, or moving the mouse).",
+      "Includes at least one procedure (i.e., a custom block). The procedure must contain multiple blocks and contribute meaningfully to the purpose of the program.",
+      "Includes at least two of the following:",
+      "Iteration, such as through the use of the repeat or for block.",
+      "Selection, such as through the use of an if or if else block.",
+      "A list which either stores data that is already programmed in or data that is collected from the user."
+    ],
+    "rubric": [
+      {
+        "category": "Purpose",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The purpose of the program is clear to the viewer and appropriate for the assignment."
+          },
+          {
+            "points": 1,
+            "description": "The purpose of the program is unclear, inconsistent, or not appropriate for the assignment."
+          },
+          {
+            "points": 0,
+            "description": "There is no obvious purpose."
+          }
+        ]
+      },
+      {
+        "category": "User Interaction",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "User interaction was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "User interaction was attempted  but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "There is no way for the user to interact with the program."
+          }
+        ]
+      },
+      {
+        "category": "Custom Block",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A custom block was made with multiple blocks. It has a clear purpose in the program."
+          },
+          {
+            "points": 1,
+            "description": "A custom block was made, but does not contain multiple blocks and/or does not have a clear purpose in the program."
+          },
+          {
+            "points": 0,
+            "description": "No custom block was made."
+          }
+        ]
+      },
+      {
+        "category": "Additional Features",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Two additional features (iteration, selection, or list) were implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "Only one additional feature (iteration, selection, or list) was implemented successfully."
+          },
+          {
+            "points": 0,
+            "description": "No additional feature was implemented."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 5 Assessment",
+    "description": [
+      "Similar to your work in Lab 2, Contact List, write a data analysis program that meets all of the following specifications:",
+      "Includes one data set from the CORGIS Datasets Project.",
+      "Filters the data in a single column of a portion of your data set by using keep.",
+      "For example, if your data set provides nutritional information for a variety of foods you could analyze the protein content (provided in one column of the data) of all the infant formulas (a portion of all the types of food).",
+      "Processes the data to conduct three separate mathematical analyses of the same single column of a portion of your data set.",
+      "For example, you could determine the following:",
+      "The average value",
+      "The maximum value",
+      "The count of how many data points have value above or below a certain threshold",
+      "Plots the same single column of a portion of your data set that you analyzed using the BAR CHART and PLOT BAR CHART blocks from the \"Bar Charts\" library."
+    ],
+    "rubric": [
+      {
+        "category": "Filtered Dataset",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A dataset was correctly imported into the program AND filtered using keep."
+          },
+          {
+            "points": 1,
+            "description": "A dataset was correctly imported into the program but it was not filtered using keep."
+          },
+          {
+            "points": 0,
+            "description": "No data was imported into the program."
+          }
+        ]
+      },
+      {
+        "category": "Mathematical Analysis #1",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to analyze one aspect of the data."
+          },
+          {
+            "points": 1,
+            "description": "Code to analyze the data was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No analysis was attempted."
+          }
+        ]
+      },
+      {
+        "category": "Mathematical Analysis #2",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to analyze one aspect of the data."
+          },
+          {
+            "points": 1,
+            "description": "Code to analyze the data was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No analysis was attempted."
+          }
+        ]
+      },
+      {
+        "category": "Mathematical Analysis #3",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Code was correctly written to analyze one aspect of the data."
+          },
+          {
+            "points": 1,
+            "description": "Code to analyze the data was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No analysis was attempted."
+          }
+        ]
+      },
+      {
+        "category": "Bar Chart Plot",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A clear and correct plot of the data was provided."
+          },
+          {
+            "points": 1,
+            "description": "A plot was attempted but not implemented successfully or was described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "The data was not plotted."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 6 Assessment",
+    "description": [
+      "Make an interactive poster in Snap! that meets all of the following specifications:",
+      "Explains either how computers work OR the history of computers to an audience of your choosing.",
+      "You can go as broad or narrow as you’d like.",
+      "For example, you could explain how semiconductors work to a future AP CSP student OR you could provide a brief overview of the history of computers for a younger sibling in elementary school.",
+      "Lets the user interact (e.g., by clicking a sprite, pressing a key, or moving the mouse).",
+      "Showcases the programming knowledge, skills, and experience you’ve developed in this course through the use of sequencing, selection, iteration, and/or abstraction.",
+      "Cites all sources used as comments in the program code."
+    ],
+    "rubric": [
+      {
+        "category": "Purpose",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The program includes a purpose for the viewer that is appropriate for the assignment."
+          },
+          {
+            "points": 1,
+            "description": "The program includes a purpose that is unclear, inconsistent, or not appropriate for the assignment."
+          },
+          {
+            "points": 0,
+            "description": "There is no obvious purpose."
+          }
+        ]
+      },
+      {
+        "category": "User Interaction",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "User interaction was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "User interaction was attempted  but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "There is no way for the user to interact with the program."
+          }
+        ]
+      },
+      {
+        "category": "Programming Knowledge",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The program demonstrates the programming knowledge, skills, and experience through the use of sequencing, selection, iteration, and/or abstraction"
+          },
+          {
+            "points": 1,
+            "description": "A demonstration of programming expertise was inconsistently implemented or there were significant inaccuracies in the information included."
+          },
+          {
+            "points": 0,
+            "description": "No programming expertise was demonstrated."
+          }
+        ]
+      },
+      {
+        "category": "Citations",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "Citations were included in the comments where appropriate."
+          },
+          {
+            "points": 1,
+            "description": "Some citations were included, but they were insufficient, or there was evidence of plagiarism."
+          },
+          {
+            "points": 0,
+            "description": "No citations were included."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 7 Assessment",
+    "description": [
+      "Write a program in Snap! that draws a design using recursion. Your recursive function should include the following:",
+      "A base case for the lowest level that stops the recursion from going on forever.",
+      "A recursive case that calls the block itself at lower levels until it reaches the base case.",
+      "For inspiration, you may want to review the designs in Unit 7: Fractals and Recursion; however, you may not reconstruct any design you’ve already created in this unit. You may also wish to review the drawings you created in Unit 1 Lab 3: Modern Art with Polygons such as the spiral you built on Page 6, which is shown to the right."
+    ],
+    "rubric": [
+      {
+        "category": "Drawing",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A drawing was successfully completed."
+          },
+          {
+            "points": 1,
+            "description": "A drawing was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No drawing was completed."
+          }
+        ]
+      },
+      {
+        "category": "Base Case",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A base case was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "A base case was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No base case was written."
+          }
+        ]
+      },
+      {
+        "category": "Recursive Case",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A recursive case was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "A recursive case was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No recursive case was written."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Beauty and Joy of Computing Unit 8 Assessment",
+    "description": [
+      "Write a recursive program in Snap!. Your recursive function should include the following:",
+      "A base case for the lowest level that stops the recursion from going on forever.",
+      "A recursive case that calls the block itself at lower levels until it reaches the base case.",
+      "Your program should have a clearly defined purpose and cannot be a duplicate of one you already wrote while completing the labs in  Unit 7 or Unit 8.",
+      "Some possible problems to solve include:",
+      "Write a program to calculate the Fibonacci sequence up to the nth number (where n is the input into the program). The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence goes 0, 1, 1, 2, 3, 5, 8, 13, and so forth.",
+      "Write a program to check if a word is a palindrome. A word that is a palindrome reads the same forward and backward. For example, \"madam\" or \"racecar\" are palindromes.",
+      "Write a program to reverse the characters in a string. For example, “goodnight” will become “thgindoog”.",
+      "Write a program to compute xn (x raised to the power n) recursively."
+    ],
+    "rubric": [
+      {
+        "category": "Purpose",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "The program includes a clear purpose."
+          },
+          {
+            "points": 1,
+            "description": "The purpose of the program is unclear or inconsistent."
+          },
+          {
+            "points": 0,
+            "description": "There is no obvious purpose for the program."
+          }
+        ]
+      },
+      {
+        "category": "Base Case",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A base case was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "A base case was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No base case was written."
+          }
+        ]
+      },
+      {
+        "category": "Recursive Case",
+        "criteria": [
+          {
+            "points": 2,
+            "description": "A recursive case was implemented successfully."
+          },
+          {
+            "points": 1,
+            "description": "A recursive case was attempted but not implemented successfully or described in the written responses but not completed."
+          },
+          {
+            "points": 0,
+            "description": "No recursive case was written."
+          }
+        ]
+      }
+    ]
+  }
+]
