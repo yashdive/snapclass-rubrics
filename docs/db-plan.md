@@ -1,4 +1,4 @@
-# Rubric Data & History Plan (Plain English)
+# Rubric Data & History Plan
 
 This document explains, in simple terms, how we will save rubrics, user information, and the full history of changes when someone regenerates a part of a rubric.
 
