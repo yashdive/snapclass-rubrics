@@ -1,6 +1,6 @@
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
-import { OllamaEmbeddings } from "@langchain/ollama";
+import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { config } from "../config/env.config.js";
 import path from "path";
@@ -30,7 +30,12 @@ async function initializeVectorStore() {
     });
     
     globalSplits = await textSplitter.splitDocuments(docs);
-    const embeddings = new OllamaEmbeddings();
+    
+    // Use Hugging Face embeddings for production (works without local Ollama)
+    const embeddings = new HuggingFaceInferenceEmbeddings({
+      apiKey: process.env.HF_TOKEN,
+      model: "sentence-transformers/all-MiniLM-L6-v2",
+    });
     
     globalVectorStore = await MemoryVectorStore.fromDocuments(
       globalSplits,
@@ -40,11 +45,12 @@ async function initializeVectorStore() {
     console.log(`[RAG Service] Vector store initialized with ${globalSplits.length} chunks.`);
   } catch (error) {
     console.error("[RAG Service] Failed to initialize vector store:", error);
-    throw error;
+    console.warn("[RAG Service] Continuing without RAG - using fallback mode");
+    // Don't throw - allow server to start without RAG in production
   }
 }
 
-// Start initialization immediately
+// Start initialization immediately (but don't block server startup)
 const vectorStoreReady = initializeVectorStore();
 
 /**
