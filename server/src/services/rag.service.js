@@ -45,7 +45,17 @@ async function initializeVectorStore() {
     console.log(`[RAG Service] Vector store initialized with ${globalSplits.length} chunks.`);
   } catch (error) {
     console.error("[RAG Service] Failed to initialize vector store:", error);
-    console.warn("[RAG Service] Continuing without RAG - using fallback mode");
+    
+    // Provide specific error messages for common issues
+    if (error.message?.includes("quota") || error.message?.includes("insufficient_quota")) {
+      console.error("[RAG Service] ⚠️ HuggingFace quota exceeded for embeddings");
+    } else if (error.message?.includes("rate limit")) {
+      console.error("[RAG Service] ⚠️ HuggingFace rate limit reached");
+    } else if (error.code === "ENOENT") {
+      console.error("[RAG Service] ⚠️ PDF file not found:", error.path);
+    }
+    
+    console.warn("[RAG Service] Continuing without RAG - rubric generation will work but without context from manual");
     // Don't throw - allow server to start without RAG in production
   }
 }

@@ -68,13 +68,35 @@ export const generateCompletion = async (prompt) => {
   } catch (error) {
     console.error("[AI Service] Error generating completion:", error);
 
-    if (error.message?.includes("rate limit")) {
-      throw new Error("Rate limit reached. Please wait and try again.");
-    } else if (error.message?.includes("not supported")) {
-      throw new Error("Model not available. Check your configuration.");
+    // Handle different HuggingFace API errors with user-friendly messages
+    if (error.message?.includes("rate limit") || error.statusCode === 429) {
+      throw new Error("⏱️ Rate limit reached. Please wait a moment and try again.");
+    } 
+    
+    if (error.message?.includes("quota") || error.message?.includes("insufficient_quota") || error.statusCode === 402) {
+      throw new Error(
+        "💳 HuggingFace API quota exceeded. The free tier has limits on usage. " +
+        "Please try again later or upgrade your HuggingFace account at https://huggingface.co/pricing"
+      );
+    }
+    
+    if (error.message?.includes("not supported") || error.message?.includes("does not exist")) {
+      throw new Error("🚫 The AI model is not available. Please contact the administrator.");
+    }
+    
+    if (error.message?.includes("Invalid API token") || error.statusCode === 401 || error.statusCode === 403) {
+      throw new Error("🔑 API authentication failed. Please contact the administrator.");
+    }
+    
+    if (error.message?.includes("timeout") || error.code === "ETIMEDOUT") {
+      throw new Error("⏰ Request timed out. The server took too long to respond. Please try again.");
     }
 
-    throw error;
+    // Generic fallback with helpful message
+    throw new Error(
+      "❌ AI service error: " + (error.message || "Unknown error occurred") + 
+      ". Please try again or contact support if the problem persists."
+    );
   }
 };
 

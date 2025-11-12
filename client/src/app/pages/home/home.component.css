@@ -83,12 +83,44 @@
 }
 
 .error-message {
-  padding: 1rem;
+  padding: 1.25rem;
   background: #fee2e2;
-  border: 1px solid #fecaca;
+  border-left: 4px solid #dc2626;
   border-radius: 8px;
   color: #991b1b;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make quota errors stand out more */
+.error-message:has-text("quota"),
+.error-message:has-text("💳") {
+  background: #fef3c7;
+  border-left-color: #f59e0b;
+  color: #92400e;
+}
+
+.info-message {
+  padding: 0.75rem 1rem;
+  background: #dbeafe;
+  border-left: 4px solid #3b82f6;
+  border-radius: 8px;
+  color: #1e40af;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .btn-generate {

@@ -52,7 +52,25 @@ export class HomeComponent {
       },
       error: (err) => {
         console.error('Generation error:', err);
-        this.error = err.message || 'Failed to generate rubric';
+        
+        // Extract user-friendly error message
+        let errorMessage = 'Failed to generate rubric. Please try again.';
+        
+        if (err.error?.message) {
+          errorMessage = err.error.message;
+        } else if (err.error?.error) {
+          errorMessage = err.error.error;
+        } else if (err.message) {
+          errorMessage = err.message;
+        } else if (err.status === 0) {
+          errorMessage = '🌐 Cannot connect to server. Please check your internet connection or try again later.';
+        } else if (err.status === 500) {
+          errorMessage = '⚠️ Server error occurred. Please try again in a moment.';
+        } else if (err.status === 504) {
+          errorMessage = '⏰ Request timeout. The server is taking longer than expected. Please try again.';
+        }
+        
+        this.error = errorMessage;
         this.loading = false;
       }
     });

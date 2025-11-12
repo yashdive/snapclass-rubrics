@@ -43,7 +43,11 @@
         </div>
         
         <div *ngIf="error" class="error-message">
-          ⚠️ {{ error }}
+          {{ error }}
+        </div>
+        
+        <div class="info-message">
+          ℹ️ <strong>First request?</strong> The server may take 50-60 seconds to wake up from sleep mode.
         </div>
         
         <button type="submit" [disabled]="loading || !title || !description" class="btn-generate">
