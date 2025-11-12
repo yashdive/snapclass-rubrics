@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RubricApiService } from '../../services/rubric-api.service';
@@ -35,7 +35,7 @@ interface RegeneratingRow {
 @Component({
   selector: 'app-rubric-display',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './rubric-display.component.html',
   styleUrl: './rubric-display.component.css'
 })
