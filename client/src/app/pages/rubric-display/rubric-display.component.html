@@ -76,12 +76,22 @@
         </thead>
         <tbody>
           <ng-container *ngFor="let category of rubric.categories; let catIdx = index">
-          <tr>
+          <tr
+            class="category-row"
+            draggable="true"
+            (dragstart)="onCategoryDragStart($event, catIdx)"
+            (dragover)="onCategoryDragOver($event, catIdx)"
+            (drop)="onCategoryDrop($event, catIdx)"
+            (dragenter)="onCategoryDragEnter($event, catIdx)"
+            (dragleave)="onCategoryDragLeave($event, catIdx)"
+            [class.dragging-row]="isCategoryDragging(catIdx)"
+            [class.drag-over-row]="isCategoryDragOver(catIdx)"
+          >
             <td class="category-cell">
               <div class="category-content">
+                <span class="category-drag-handle" title="Drag to reorder" (mousedown)="$event.stopPropagation()">☰</span>
                 <strong class="category-name">{{ category.category }}</strong>
                 <p *ngIf="category.reasoning" class="category-reasoning">{{ category.reasoning }}</p>
-                <span class="category-points">{{ category.points }} pts</span>
                 <button 
                   class="row-regenerate-btn" 
                   (click)="onRowRegenerate(catIdx)"

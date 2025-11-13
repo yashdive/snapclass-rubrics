@@ -40,6 +40,64 @@ interface RegeneratingRow {
   styleUrl: './rubric-display.component.css'
 })
 export class RubricDisplayComponent implements OnInit {
+
+  // Drag-and-drop state for category rows
+  draggingCategoryIdx: number | null = null;
+  dragOverCategoryIdx: number | null = null;
+
+  onCategoryDragStart(event: DragEvent, idx: number) {
+    this.draggingCategoryIdx = idx;
+    event.dataTransfer?.setData('text/plain', idx.toString());
+    event.dataTransfer!.effectAllowed = 'move';
+  }
+
+  onCategoryDragOver(event: DragEvent, idx: number) {
+    event.preventDefault();
+    this.dragOverCategoryIdx = idx;
+    event.dataTransfer!.dropEffect = 'move';
+  }
+
+  onCategoryDragEnter(event: DragEvent, idx: number) {
+    event.preventDefault();
+    this.dragOverCategoryIdx = idx;
+  }
+
+  onCategoryDragLeave(event: DragEvent, idx: number) {
+    this.dragOverCategoryIdx = null;
+  }
+
+  onCategoryDrop(event: DragEvent, idx: number) {
+    event.preventDefault();
+    if (this.draggingCategoryIdx === null || !this.rubric) return;
+    const fromIdx = this.draggingCategoryIdx;
+    const toIdx = idx;
+    if (fromIdx === toIdx) {
+      this.draggingCategoryIdx = null;
+      this.dragOverCategoryIdx = null;
+      return;
+    }
+    const cats = this.rubric.categories;
+    const [moved] = cats.splice(fromIdx, 1);
+    cats.splice(toIdx, 0, moved);
+    this.draggingCategoryIdx = null;
+    this.dragOverCategoryIdx = null;
+  }
+
+  isCategoryDragging(idx: number): boolean {
+    return this.draggingCategoryIdx === idx;
+  }
+
+  isCategoryDragOver(idx: number): boolean {
+    return this.dragOverCategoryIdx === idx && this.draggingCategoryIdx !== null && this.draggingCategoryIdx !== idx;
+  }
+
+  moveCategoryRow(index: number, direction: 1 | -1) {
+    if (!this.rubric) return;
+    const newIndex = index + direction;
+    if (newIndex < 0 || newIndex >= this.rubric.categories.length) return;
+    const cats = this.rubric.categories;
+    [cats[index], cats[newIndex]] = [cats[newIndex], cats[index]];
+  }
   rubric: Rubric | null = null;
   loading = false;
   error = '';
